@@ -92,11 +92,14 @@
       // written by the specified author.
     return Article.allAuthors().map(function(currentAuthor) {
       return {
-          // name: currentAuthor,
-          // numWords: // someCollection.filter(function(curArticle) {
-            // what do we return here to check for matching authors?
-          // .map() to return the author's word count for each article body (you may split or regexp)
-          // .reduce() to squash this array into one big number, per author.
+        name: currentAuthor,
+        numWords: Article.allArticles.filter(function(currentArticle) {
+          return currentArticle.author === currentAuthor;
+        }).map(function(currentArticle) {
+          return currentArticle.body.match(/\w+/g).length;
+        }).reduce(function(acc, cur) {
+          return acc + cur;
+        })
       };
     });
   };
