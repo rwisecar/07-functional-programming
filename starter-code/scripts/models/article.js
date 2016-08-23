@@ -87,7 +87,7 @@
   };
 
   Article.numWordsByAuthor = function() {
-    // TODO: transform each author element into an object with 2 properties:
+    // TODO: DONE! transform each author element into an object with 2 properties:
       // one for the author's name, and one for the total number of words
       // written by the specified author.
     return Article.allAuthors().map(function(currentAuthor) {
